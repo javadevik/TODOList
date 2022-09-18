@@ -1,5 +1,4 @@
 ﻿
-using System.Collections;
 using Microsoft.AspNetCore.Mvc;
 using TODOList.Models;
 using TODOList.Services;
@@ -22,10 +21,11 @@ public class ToDoController : Controller
     }
 
     [HttpGet]
-    [Route("todo/mock/data")]
+    [Route("/todo/mock/data")]
     public IActionResult Mock()
     {
         ICollection<Task> todo = _mockToDoService.CreateMockList();
+        ICollection<Task> completedTasks = _mockToDoService.CreateMockCompletedList();
         return View(todo);
     }
 

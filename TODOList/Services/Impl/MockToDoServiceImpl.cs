@@ -6,6 +6,16 @@ public class MockToDoServiceImpl : MockToDoService
 {
     public ICollection<Task> CreateMockList()
     {
+        return CreateListOfTasks();
+    }
+
+    public ICollection<Task> CreateMockCompletedList()
+    {
+        return CreateListOfTasks();
+    }
+
+    private ICollection<Task> CreateListOfTasks()
+    {
         ICollection<Task> todos = new List<Task>();
         
         var task1 = new Task(1, "Task1", "Description1", DateTime.Now);
